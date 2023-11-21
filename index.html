@@ -1,43 +1,41 @@
-<!DOCTYPE>
+<!DOCTYPE >
 <html>
+  <head>
+    <title>CSS3 Perspective Playground</title>
+    <link rel="stylesheet" type="text/css" href="main.css" />
+  </head>
 
-<head>
-  <title>CSS3 Perspective Playground</title>
-  <link rel="stylesheet" type="text/css" href="main.css" />
-</head>
+  <body>
+    <div id="app">
+      <h2>CSS3 Perspective Playground</h2>
+      <main>
+        <section class="settings">
+          <div class="settings-container">
+            <label>perspective: {{perspective}}px;</label>
+            <input type="range" min="0" max="999" v-model="perspective" />
 
-<body>
-  <div id="app">
-    <h2>CSS3 Perspective Playground</h2>
-    <main>
-      <section class="settings">
-        <div class="settings-container">
-          <label>perspective: {{perspective}}px;</label>
-          <input type="range" min="0" max="999"  v-model="perspective" />
+            <label>rotateX: {{rotateX}}deg; </label>
+            <input type="range" min="-180" max="180" v-model="rotateX" />
 
-          <label>rotateX: {{rotateX}}deg; </label>
-          <input type="range" min="-180" max="180"  v-model="rotateX"/>
+            <label>rotateY: {{rotateY}}deg; </label>
+            <input type="range" min="-180" max="180" v-model="rotateY" />
 
-          <label>rotateY: {{rotateY}}deg; </label>
-          <input type="range" min="-180" max="180" v-model="rotateY"/>
+            <label>rotateZ: {{rotateZ}}deg; </label>
+            <input type="range" min="-180" max="180" v-model="rotateZ" />
 
-          <label>rotateZ: {{rotateZ}}deg; </label>
-          <input type="range" min="-180" max="180" v-model="rotateZ"/>
+            <button type="button" @click.prevent="reset">Reset</button>
+            <button type="button" @click.prevent="copy">Copy</button>
+          </div>
+        </section>
+        <section class="output">
+          <div class="box-container">
+            <div class="box" :style="box"></div>
+          </div>
+        </section>
+      </main>
+    </div>
 
-          <button type="button" @click.prevent="reset">Reset</button>
-          <button type="button" @click.prevent="copy">Copy</button>
-        </div>
-      </section>
-      <section class="output">
-        <div class="box-container">
-          <div class="box" :style="box"></div>
-        </div>
-      </section>
-    </main>
-
-  </div>
-
-  <css-doodle>
+    <!-- <css-doodle>
     :doodle {
     @grid: 1x3 / 100vmax;
     position: absolute;
@@ -64,11 +62,21 @@
     from { transform: translateY(-100%) }
     to { transform: translateY(100%) }
     }
-  </css-doodle>
+  </css-doodle> -->
 
-  <script src="https://unpkg.com/css-doodle@0.6.1/css-doodle.min.js"></script>
-  <script src="https://unpkg.com/vue@next"></script>
-  <script src="app.js"></script>
-</body>
+    <css-doodle click-to-update>
+      :doodle { @grid: 33 / 100vmax; } :after { animation: star @r(7s, 12s)
+      infinite alternate; content: \2605; color: hsla(@r(174, 286), @r(100%,
+      77%), @r(100%, 46%), @r(0, .9)); font-size: @r(3vmin); filter: blur(@r(0,
+      5px)); position: relative; transition: .3s linear; } @keyframes star { 0%
+      { transform: rotate(@r(0deg, 360deg)) scale(@r(1.3, .25))
+      translate(@r(-25vmin, 15vmin), @r(-25vmin, 15vmin)); } 100% { transform:
+      rotate(@r(0deg, 360deg)) scale(@r(.25, 1.3)) translate(@r(-5vmin, 5vmin),
+      @r(-5vmin, 5vmin)); } }
+    </css-doodle>
 
+    <script src="https://unpkg.com/css-doodle@0.6.1/css-doodle.min.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="app.js"></script>
+  </body>
 </html>

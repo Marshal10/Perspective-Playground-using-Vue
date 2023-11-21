@@ -75,3 +75,30 @@ button {
 label{
   color: #fff;
 }
+
+css-doodle {
+	position: fixed;
+	z-index: 1;
+}
+@keyframes body {
+	0% {
+		background-position: 0% 50%;
+		filter: drop-shadow(0 -5vmin 50vmin #ee1a44)
+			drop-shadow(-5vmin -25vmin 30vmin #8916ac);
+	}
+	100% {
+		background-position: 100% 50%;
+		filter: drop-shadow(0 5vmin 50vmin #ee1a44)
+			drop-shadow(15vmin -5vmin 30vmin #8916ac);
+	}
+}
+.ifr {
+	animation: ifr 3s 3s both;
+	opacity:0;
+}
+
+@keyframes ifr {
+	100% {
+		opacity: 1;
+	}
+}
